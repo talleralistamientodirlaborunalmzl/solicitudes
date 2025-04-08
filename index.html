@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de Laboratorios UNAL</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #005883;
+            --secondary: #F0B310;
+            --accent: #8C1D40;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .logo {
+            height: 100px;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .qr-share {
+            display: inline-block;
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-top: 1.5rem;
+        }
+        
+        .qr-label {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .chapter-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--accent);
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+            font-weight: 600;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 88, 131, 0.1);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), #0078a8);
+        }
+        
+        .card-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .article {
+            margin-bottom: 1.5rem;
+        }
+        
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
+        .article-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .article-number {
+            background: var(--light);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .article-content {
+            font-size: 0.95rem;
+        }
+        
+        .service-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .service-item {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .service-item:before {
+            content: "•";
+            color: var(--secondary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        .service-letter {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+            line-height: 24px;
+        }
+        
+        .paragraph {
+            margin-left: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #eee;
+            margin-top: 1rem;
+        }
+        
+        .paragraph-title {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background: rgba(240, 179, 16, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://talleralistamientodirlaborunalmzl.github.io/solicitudes/Images/Logo_Unal.jpg" alt="Logo UNAL" class="logo">
+            <h1>Servicios de los Laboratorios</h1>
+            <p class="subtitle">Universidad Nacional de Colombia - Sede Manizales</p>
+            
+            <div class="qr-share">
+                <div id="qrcode"></div>
+                <div class="qr-label">Comparte esta información</div>
+            </div>
+        </header>
+        
+        <h2 class="chapter-title">CAPÍTULO III. DEL SERVICIO</h2>
+        
+        <div class="services-grid">
+            <!-- Tarjeta de Formación -->
+            <div class="service-card">
+                <div class="card-header">
+                    <h3 class="card-title">Formación Académica</h3>
+                </div>
+                <div class="card-body">
+                    <div class="article">
+                        <div class="article-header">
+                            <h4 class="article-title">Servicios de Formación</h4>
+                            <span class="article-number">Artículo 12</span>
+                        </div>
+                        <div class="article-content">
+                            <p>Los servicios de formación ofrecidos por los laboratorios son diseñados para la ejecución de prácticas de las asignaturas que lo requieren.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article">
+                        <div class="article-header">
+                            <h4 class="article-title">Apoyo a Investigación</h4>
+                            <span class="article-number">Artículo 13</span>
+                        </div>
+                        <div class="article-content">
+                            <p>Los laboratorios de investigación y, en menor medida, los de formación de la Sede, ofrecerán —en la medida de las posibilidades— a los grupos de investigación (STA) y a los estudiantes de pregrado y posgrado la infraestructura experimental y el personal disponible para el desarrollo de sus proyectos de investigación, proyectos de extensión, trabajos dirigidos de grado (TDG) y tesis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta de Extensión -->
+            <div class="service-card">
+                <div class="card-header">
+                    <h3 class="card-title">Servicios Técnicos</h3>
+                    <span class="article-number">Artículo 14</span>
+                </div>
+                <div class="card-body">
+                    <p>Los servicios técnicos ofrecidos por los laboratorios que realizan extensión pueden ser:</p>
+                    
+                    <ul class="service-list">
+                        <li class="service-item">
+                            <span class="service-letter">a</span>
+                            <strong>Ensayos:</strong> Determinación de características cuantitativas y/o cualitativas de una muestra.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">b</span>
+                            <strong>Análisis:</strong> Trabajo intelectual basado en resultados de ensayos.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">c</span>
+                            <strong>Prueba:</strong> Aceptación o rechazo de hipótesis experimentales.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">d</span>
+                            <strong>Asistencia técnica:</strong> Solución de problemas técnicos puntuales.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">e</span>
+                            <strong>Asesoría:</strong> Transferencia de conocimiento específico.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">f</span>
+                            <strong>Cursos no formales:</strong> Educación continuada y extensión.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">g</span>
+                            <strong>Prácticas universitarias:</strong> Trabajo académico comunitario.
+                        </li>
+                        <li class="service-item">
+                            <span class="service-letter">h</span>
+                            <strong>Alquiler de espacios/equipos:</strong> Para usuarios internos y externos.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Tarjeta de Acceso -->
+            <div class="service-card">
+                <div class="card-header">
+                    <h3 class="card-title">Acceso a Servicios</h3>
+                    <span class="article-number">Artículo 15</span>
+                </div>
+                <div class="card-body">
+                    <div class="article-content">
+                        <p>Para acceder a los servicios de los laboratorios, es requisito indispensable cumplir con las condiciones establecidas en el presente reglamento.</p>
+                        
+                        <div class="paragraph">
+                            <p class="paragraph-title">PARÁGRAFO:</p>
+                            <p>Las cotizaciones deben ser firmadas por el Director de Laboratorios o el Coordinador. No se podrá adelantar procedimiento alguno sin autorización previa.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tarjeta de Tarifas -->
+            <div class="service-card">
+                <div class="card-header">
+                    <h3 class="card-title">Política de Tarifas</h3>
+                    <span class="article-number">Artículo 16</span>
+                </div>
+                <div class="card-body">
+                    <div class="article-content">
+                        <p>Las tarifas deben fijarse de acuerdo con las políticas de la Universidad y ser revisadas anualmente por el Consejo de Sede.</p>
+                        
+                        <div class="highlight">
+                            <strong>Exoneraciones (Párrafo 1):</strong> Aplican para estudiantes UNAL, funcionarios en formación, pasantías de investigación e investigaciones conjuntas.
+                        </div>
+                        
+                        <div class="paragraph">
+                            <p class="paragraph-title">Restricciones:</p>
+                            <ul class="service-list">
+                                <li class="service-item">No aplica para proyectos empresariales sin convenio</li>
+                                <li class="service-item">Descuentos máximos del 40% para trabajos académicos</li>
+                                <li class="service-item">Requieren equilibrio financiero del laboratorio</li>
+                            </ul>
+                        </div>
+
+                        <div class="paragraph">
+                            <p class="paragraph-title">Excepciones (Párrafo 5):</p>
+                            <p>El Director de Laboratorios puede autorizar ensayos demostrativos sin costo inicial cuando exista carta de intención para futuros convenios.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Acuerdo 02 de 2011 - Universidad Nacional de Colombia Sede Manizales</p>
+            <p>© 2024 - Todos los derechos reservados</p>
+        </footer>
+    </div>
+
+    <script>
+        // Generar código QR con la URL actual
+        document.addEventListener('DOMContentLoaded', function() {
+            const qrcode = new QRCode(document.getElementById("qrcode"), {
+                text: window.location.href,
+                width: 120,
+                height: 120,
+                colorDark: "#005883",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
+    </script>
+</body>
+</html>
