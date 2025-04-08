@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios de Laboratorios UNAL</title>
+    <title>Servicios de Laboratorios UNAL - Capítulo III</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -85,23 +85,12 @@
             font-weight: 600;
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-        
-        @media (min-width: 768px) {
-            .services-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        
         .service-card {
             background: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 88, 131, 0.1);
+            margin-bottom: 2rem;
         }
         
         .card-header {
@@ -121,20 +110,21 @@
         }
         
         .article {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .article-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
         
         .article-title {
             font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             color: var(--primary);
+            font-size: 1.2rem;
         }
         
         .article-number {
@@ -142,68 +132,86 @@
             color: var(--primary);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: bold;
         }
         
         .article-content {
-            font-size: 0.95rem;
+            font-size: 1rem;
+            line-height: 1.7;
         }
         
         .service-list {
             list-style: none;
-            margin-top: 1rem;
+            margin: 1rem 0;
         }
         
         .service-item {
-            padding: 0.5rem 0;
+            padding: 0.7rem 0;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 2.5rem;
         }
         
         .service-item:before {
             content: "•";
             color: var(--secondary);
             position: absolute;
-            left: 0;
+            left: 1rem;
             font-weight: bold;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             line-height: 1;
         }
         
         .service-letter {
             display: inline-block;
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             background: var(--primary);
             color: white;
             text-align: center;
             border-radius: 50%;
             font-weight: bold;
             margin-right: 0.5rem;
-            font-size: 0.8rem;
-            line-height: 24px;
+            font-size: 0.9rem;
+            line-height: 28px;
+            position: absolute;
+            left: 0;
         }
         
         .paragraph {
-            margin-left: 1rem;
-            padding-left: 1rem;
+            margin-left: 1.5rem;
+            padding-left: 1.5rem;
             border-left: 3px solid #eee;
-            margin-top: 1rem;
+            margin: 1.5rem 0;
         }
         
         .paragraph-title {
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Montserrat', sans-serif;
         }
         
         .highlight {
             background: rgba(240, 179, 16, 0.1);
-            padding: 1rem;
+            padding: 1.2rem;
             border-radius: 8px;
-            margin: 1rem 0;
+            margin: 1.5rem 0;
             border-left: 4px solid var(--secondary);
+        }
+        
+        .note {
+            font-style: italic;
+            color: var(--gray);
+            margin: 0.5rem 0;
+        }
+        
+        .exception {
+            background: rgba(140, 29, 64, 0.05);
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            border-left: 3px solid var(--accent);
         }
         
         footer {
@@ -231,126 +239,151 @@
         
         <h2 class="chapter-title">CAPÍTULO III. DEL SERVICIO</h2>
         
-        <div class="services-grid">
-            <!-- Tarjeta de Formación -->
-            <div class="service-card">
-                <div class="card-header">
-                    <h3 class="card-title">Formación Académica</h3>
-                </div>
-                <div class="card-body">
-                    <div class="article">
-                        <div class="article-header">
-                            <h4 class="article-title">Servicios de Formación</h4>
-                            <span class="article-number">Artículo 12</span>
-                        </div>
-                        <div class="article-content">
-                            <p>Los servicios de formación ofrecidos por los laboratorios son diseñados para la ejecución de prácticas de las asignaturas que lo requieren.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="article">
-                        <div class="article-header">
-                            <h4 class="article-title">Apoyo a Investigación</h4>
-                            <span class="article-number">Artículo 13</span>
-                        </div>
-                        <div class="article-content">
-                            <p>Los laboratorios de investigación y, en menor medida, los de formación de la Sede, ofrecerán —en la medida de las posibilidades— a los grupos de investigación (STA) y a los estudiantes de pregrado y posgrado la infraestructura experimental y el personal disponible para el desarrollo de sus proyectos de investigación, proyectos de extensión, trabajos dirigidos de grado (TDG) y tesis.</p>
-                        </div>
-                    </div>
+        <!-- Artículo 12 -->
+        <div class="service-card">
+            <div class="card-header">
+                <h3 class="card-title">Artículo 12</h3>
+            </div>
+            <div class="card-body">
+                <div class="article-content">
+                    <p>Los servicios de formación ofrecidos por los laboratorios son diseñados para la ejecución de prácticas de las asignaturas que lo requieren.</p>
                 </div>
             </div>
-            
-            <!-- Tarjeta de Extensión -->
-            <div class="service-card">
-                <div class="card-header">
-                    <h3 class="card-title">Servicios Técnicos</h3>
-                    <span class="article-number">Artículo 14</span>
+        </div>
+        
+        <!-- Artículo 13 -->
+        <div class="service-card">
+            <div class="card-header">
+                <h3 class="card-title">Artículo 13</h3>
+            </div>
+            <div class="card-body">
+                <div class="article-content">
+                    <p>Los laboratorios de investigación y, en menor medida, los de formación de la Sede, ofrecerán —en la medida de las posibilidades— a los grupos de investigación (STA) y a los estudiantes de pregrado y posgrado la infraestructura experimental y el personal disponible para el desarrollo de sus proyectos de investigación, proyectos de extensión, trabajos dirigidos de grado (TDG) y tesis.</p>
                 </div>
-                <div class="card-body">
+            </div>
+        </div>
+        
+        <!-- Artículo 14 -->
+        <div class="service-card">
+            <div class="card-header">
+                <h3 class="card-title">Artículo 14</h3>
+            </div>
+            <div class="card-body">
+                <div class="article-content">
                     <p>Los servicios técnicos ofrecidos por los laboratorios que realizan extensión pueden ser:</p>
                     
                     <ul class="service-list">
                         <li class="service-item">
                             <span class="service-letter">a</span>
-                            <strong>Ensayos:</strong> Determinación de características cuantitativas y/o cualitativas de una muestra.
+                            <strong>Ensayos:</strong> Determinación de las características cuantitativas y/o cualitativas de una muestra, usando procedimientos basados en normas técnicas o métodos propios validados.
                         </li>
                         <li class="service-item">
                             <span class="service-letter">b</span>
-                            <strong>Análisis:</strong> Trabajo intelectual basado en resultados de ensayos.
+                            <strong>Análisis:</strong> Trabajo intelectual basado en los resultados obtenidos con los ensayos, con el que se busca dar recomendaciones específicas al usuario. También puede interpretarse como la distinción y separación del material analizado hasta llegar a conocer sus principios o elementos.
                         </li>
                         <li class="service-item">
                             <span class="service-letter">c</span>
-                            <strong>Prueba:</strong> Aceptación o rechazo de hipótesis experimentales.
+                            <strong>Prueba:</strong> Aceptación o rechazo de una hipótesis planteada con base en el desarrollo de un diseño experimental, sobre una característica cuantitativa de un material que puede ser innovador o porque se requiere conocer su respuesta bajo condiciones diferentes a las normalizadas. Esta actividad está asociada a los proyectos de investigación y desarrollo.
                         </li>
                         <li class="service-item">
                             <span class="service-letter">d</span>
-                            <strong>Asistencia técnica:</strong> Solución de problemas técnicos puntuales.
+                            <strong>Asistencia técnica:</strong> Es la cooperación que la Universidad ofrece para la solución de problemas puntuales y ocasionales de orden técnico. Implica, generalmente, el uso de instrumentos, desarrollos operativos, montajes o puesta en marcha de procesos.
                         </li>
                         <li class="service-item">
                             <span class="service-letter">e</span>
-                            <strong>Asesoría:</strong> Transferencia de conocimiento específico.
+                            <strong>Asesoría:</strong> Son aquellas acciones que pretenden ofrecer un conocimiento específico sobre temáticas concretas, donde los actores involucrados en la problemática identificada se apropian del conocimiento preexistente. La asesoría posibilita procesos viables y útiles para el enfrentamiento de situaciones puntuales y problemáticas generadas en el medio.
                         </li>
                         <li class="service-item">
                             <span class="service-letter">f</span>
-                            <strong>Cursos no formales:</strong> Educación continuada y extensión.
+                            <strong>Cursos o prácticas de educación no formal:</strong> Son un conjunto de procesos de enseñanza-aprendizaje, debidamente planeados y organizados, ofrecidos con el objeto de profundizar, complementar, actualizar, socializar, capacitar y formar en aspectos académicos y laborales. Son cursos o prácticas no conducentes a título y pueden ser cursos de educación continuada, cursos de extensión, prácticas de laboratorio para colegios y/o universidades y cursos libres.
                         </li>
                         <li class="service-item">
                             <span class="service-letter">g</span>
-                            <strong>Prácticas universitarias:</strong> Trabajo académico comunitario.
+                            <strong>Prácticas universitarias en extensión:</strong> Se desarrollan a partir de prácticas curriculares de los últimos semestres en pregrado o en postgrado u otras experiencias de extensión que comprometen un ejercicio de trabajo académico orientado al desarrollo social y comunitario. Sus modalidades son:
+                            <div style="margin-left: 2rem; margin-top: 0.5rem;">
+                                <p>- Prácticas académicas inscritas en programas curriculares.</p>
+                                <p>- Pasantía como modalidad de trabajo de grado.</p>
+                                <p>- Prácticas libres en extensión.</p>
+                            </div>
                         </li>
                         <li class="service-item">
                             <span class="service-letter">h</span>
-                            <strong>Alquiler de espacios/equipos:</strong> Para usuarios internos y externos.
+                            <strong>Alquiler de espacios y/o equipos:</strong> Para usuarios internos o externos, siempre y cuando las condiciones de los espacios o equipos lo permitan. Para retirar los equipos debe seguirse el procedimiento establecido por la sección de Bienes y Suministros para los efectos y con autorización del Coordinador del laboratorio.
                         </li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Tarjeta de Acceso -->
-            <div class="service-card">
-                <div class="card-header">
-                    <h3 class="card-title">Acceso a Servicios</h3>
-                    <span class="article-number">Artículo 15</span>
-                </div>
-                <div class="card-body">
-                    <div class="article-content">
-                        <p>Para acceder a los servicios de los laboratorios, es requisito indispensable cumplir con las condiciones establecidas en el presente reglamento.</p>
-                        
-                        <div class="paragraph">
-                            <p class="paragraph-title">PARÁGRAFO:</p>
-                            <p>Las cotizaciones deben ser firmadas por el Director de Laboratorios o el Coordinador. No se podrá adelantar procedimiento alguno sin autorización previa.</p>
-                        </div>
+        </div>
+        
+        <!-- Artículo 15 -->
+        <div class="service-card">
+            <div class="card-header">
+                <h3 class="card-title">Artículo 15</h3>
+            </div>
+            <div class="card-body">
+                <div class="article-content">
+                    <p>Para acceder a los servicios de los laboratorios, es requisito indispensable cumplir con las condiciones establecidas en el presente reglamento.</p>
+                    
+                    <div class="paragraph">
+                        <p class="paragraph-title">PARÁGRAFO</p>
+                        <p>Las cotizaciones que emitan los laboratorios de la Sede a personas naturales o jurídicas que las soliciten, deberán ser firmadas por el Director de Laboratorios o, en su ausencia, lo hará el Coordinador del laboratorio respectivo. En ningún caso podrá adelantarse procedimiento alguno sin la previa autorización de los funcionarios mencionados, tampoco podrá efectuarse el servicio a partir de cotizaciones que no cumplan este requisito.</p>
                     </div>
                 </div>
             </div>
-            
-            <!-- Tarjeta de Tarifas -->
-            <div class="service-card">
-                <div class="card-header">
-                    <h3 class="card-title">Política de Tarifas</h3>
-                    <span class="article-number">Artículo 16</span>
-                </div>
-                <div class="card-body">
-                    <div class="article-content">
-                        <p>Las tarifas deben fijarse de acuerdo con las políticas de la Universidad y ser revisadas anualmente por el Consejo de Sede.</p>
+        </div>
+        
+        <!-- Artículo 16 -->
+        <div class="service-card">
+            <div class="card-header">
+                <h3 class="card-title">Artículo 16</h3>
+            </div>
+            <div class="card-body">
+                <div class="article-content">
+                    <p>Las tarifas deben fijarse de acuerdo con las políticas de la Universidad y deben ser revisadas y aprobadas por el Consejo de Sede al menos una vez al año, en atención a las condiciones del mercado y previa solicitud del Director de Laboratorios. El Director de Laboratorios de Sede podrá fijar tarifas sobre servicios que prestan los laboratorios y que por su alta especificidad no están estandarizados; estas tarifas serán acordadas previamente con los Coordinadores de los laboratorios. Así mismo, el Director de Laboratorios, concertadamente con el Coordinador del Laboratorio respectivo, podrá ofrecer un descuento de hasta el diez por ciento (10%) en los costos de los servicios de laboratorio en los casos en que, tras un análisis financiero de dicha posibilidad, en comparación con los precios ofrecidos en el mercado y la rentabilidad que para la Universidad ofrezca la prestación del servicio, se determine la viabilidad del descuento. Un descuento mayor que no se encuentre contemplado en la reglamentación debe ser autorizado por el Consejo de Sede.</p>
+                    
+                    <div class="paragraph">
+                        <p class="paragraph-title">PARÁGRAFO 1</p>
+                        <p>Se consideran los siguientes casos de exoneración parcial o total de cobro en las tarifas de los servicios de laboratorio relacionados con formación e investigación:</p>
+                        
+                        <ul class="service-list">
+                            <li class="service-item">Estudiantes de pregrado y posgrado de la Sede Manizales.</li>
+                            <li class="service-item">Funcionarios administrativos de la Sede que se encuentren adelantando estudios en la Universidad Nacional de Colombia u otra institución de educación superior y que requieran de los servicios de laboratorio para su trabajo de investigación o grado.</li>
+                            <li class="service-item">Estudiantes de otras Sedes de la Universidad, cuyo director o codirector sea profesor adscrito a la Sede Manizales.</li>
+                            <li class="service-item">Pasantías de investigación: Estudiantes de posgrado o profesores de otras instituciones nacionales o extranjeras que adelanten pasantías en la UNAL Sede Manizales y contribuyan al desarrollo de grupos de investigación o programas académicos. La exoneración aplica únicamente durante la pasantía y requiere autorización del Decano/Director de Instituto mediante convenio, con aval del Coordinador del Laboratorio.</li>
+                            <li class="service-item">Investigaciones conjuntas con otras instituciones donde participen profesores de la Sede y se otorguen créditos a la Universidad en publicaciones o patentes.</li>
+                        </ul>
+                        
+                        <div class="note">
+                            Nota: En todos los casos, la solicitud de exoneración debe ser analizada y autorizada por el Director de Laboratorios (o el Coordinador en su ausencia), considerando que no genere desequilibrio económico para el laboratorio.
+                        </div>
                         
                         <div class="highlight">
-                            <strong>Exoneraciones (Párrafo 1):</strong> Aplican para estudiantes UNAL, funcionarios en formación, pasantías de investigación e investigaciones conjuntas.
+                            <strong>Exclusión:</strong> La exoneración no aplica para trabajos de estudiantes cuyos proyectos sean para empresas o particulares, a menos que exista un convenio con la Universidad que especifique descuentos aprobados por el Consejo de Sede.
                         </div>
+                    </div>
+                    
+                    <div class="paragraph">
+                        <p class="paragraph-title">PARÁGRAFO 2</p>
+                        <p>Los servicios técnicos prestados internamente para proyectos de investigación o desarrollo tecnológico podrán ser susceptibles de cobro, previo acuerdo entre el Director de Laboratorios (o el Coordinador) y el director del proyecto, sin generar desequilibrio económico para el Laboratorio.</p>
+                    </div>
+                    
+                    <div class="paragraph">
+                        <p class="paragraph-title">PARÁGRAFO 3</p>
+                        <p>Para descuentos a profesores, administrativos y estudiantes de otras sedes que desarrollen trabajos académicos para la Universidad (sin exoneración aplicable), se podrá otorgar un descuento de hasta el 40%, analizando costos directos/indirectos y sin afectar el presupuesto de la Sede. Requiere autorización del Director de Laboratorios o del Decano.</p>
                         
-                        <div class="paragraph">
-                            <p class="paragraph-title">Restricciones:</p>
-                            <ul class="service-list">
-                                <li class="service-item">No aplica para proyectos empresariales sin convenio</li>
-                                <li class="service-item">Descuentos máximos del 40% para trabajos académicos</li>
-                                <li class="service-item">Requieren equilibrio financiero del laboratorio</li>
-                            </ul>
+                        <div class="exception">
+                            <strong>Excepción:</strong> En el Laboratorio de Física del Plasma, las tarifas se rigen por la Resolución de Rectoría General No. 828 del 9 de agosto de 2006.
                         </div>
-
-                        <div class="paragraph">
-                            <p class="paragraph-title">Excepciones (Párrafo 5):</p>
-                            <p>El Director de Laboratorios puede autorizar ensayos demostrativos sin costo inicial cuando exista carta de intención para futuros convenios.</p>
-                        </div>
+                    </div>
+                    
+                    <div class="paragraph">
+                        <p class="paragraph-title">PARÁGRAFO 4</p>
+                        <p>Todo proyecto de extensión remunerada debe cancelar los servicios de ensayos requeridos, establecidos en la ficha presupuestal del proyecto. Los descuentos/exoneraciones deben ser autorizados por el Consejo de Sede.</p>
+                    </div>
+                    
+                    <div class="paragraph">
+                        <p class="paragraph-title">PARÁGRAFO 5</p>
+                        <p>El Director de Laboratorios podrá autorizar ensayos demostrativos o exploratorios (sin cobro inicial) si existe una carta de intención previa para futuros convenios o ventas de servicios a empresas.</p>
                     </div>
                 </div>
             </div>
